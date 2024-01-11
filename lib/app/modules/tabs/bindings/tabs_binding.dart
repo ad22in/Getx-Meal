@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:meal_getcli/app/modules/categories/controllers/categories_controller.dart';
 import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
 
 import '../controllers/tabs_controller.dart';
@@ -11,6 +12,9 @@ class TabsBinding extends Bindings {
     );
     Get.lazyPut<MealsController>(
       () => MealsController(),
+    );
+    Get.lazyPut<CategoriesController>(
+      () => CategoriesController(),
     );
   }
 }

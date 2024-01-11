@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:meal_getcli/app/data/models/meal.dart';
-import 'package:meal_getcli/app/modules/meal_detail/views/meal_detail_view.dart';
 import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
 import 'package:meal_getcli/app/modules/meals/views/meal_item_trait_view.dart';
+import 'package:meal_getcli/app/routes/app_pages.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItemView extends GetView<MealsController> {
@@ -33,7 +32,7 @@ class MealItemView extends GetView<MealsController> {
           if (!controller.getFavoriteMealList.contains(meal)) {
             controller.selectedFavoriteMeal.value = false;
           }
-          Get.to(() => MealDetailtView(meal: meal));
+          Get.toNamed(Routes.MEAL_DETAIL, arguments: meal);
         },
         child: Stack(
           children: [

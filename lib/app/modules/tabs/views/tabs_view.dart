@@ -19,7 +19,6 @@ class TabsView extends GetView<TabsController> {
 
   @override
   Widget build(BuildContext context) {
-    MealsController mealsController = Get.find();
     /* return Scaffold(
       appBar: AppBar(
         title: Obx(() => Text(controller.selectedTabTitle.value)),
@@ -60,23 +59,21 @@ class TabsView extends GetView<TabsController> {
     ); */
 
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           bottom: const TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_transit)),
-              Tab(icon: Icon(Icons.directions_bike)),
+              Tab(icon: Icon(Icons.set_meal)),
+              Tab(icon: Icon(Icons.favorite)),
             ],
           ),
           title: const Text('Tabs Demo'),
         ),
         body: const TabBarView(
           children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
+            CategoriesView(),
+            MealsView(meals: []),
           ],
         ),
       ),

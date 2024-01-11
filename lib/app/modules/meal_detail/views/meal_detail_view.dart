@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:meal_getcli/app/data/models/meal.dart';
 import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
 
-class MealDetailtView extends GetView<MealsController> {
-  const MealDetailtView({required this.meal, Key? key}) : super(key: key);
-  final Meal meal;
+class MealDetailView extends GetView<MealsController> {
+  MealDetailView({Key? key}) : super(key: key);
+  final Meal meal = Get.arguments;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

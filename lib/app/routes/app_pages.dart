@@ -4,6 +4,8 @@ import '../modules/categories/bindings/categories_binding.dart';
 import '../modules/categories/views/categories_view.dart';
 import '../modules/filters/bindings/filters_binding.dart';
 import '../modules/filters/views/filters_view.dart';
+import '../modules/meal_detail/bindings/meal_detail_binding.dart';
+import '../modules/meal_detail/views/meal_detail_view.dart';
 import '../modules/meals/bindings/meals_binding.dart';
 import '../modules/meals/views/meals_view.dart';
 import '../modules/tabs/bindings/tabs_binding.dart';
@@ -38,6 +40,11 @@ class AppPages {
       name: _Paths.MEALS,
       page: () => const MealsView(),
       binding: MealsBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEAL_DETAIL,
+      page: () => MealDetailView(),
+      binding: MealDetailBinding(),
     ),
   ];
 }

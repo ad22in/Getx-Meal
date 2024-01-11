@@ -10,6 +10,7 @@ abstract class Routes {
   static const CATEGORIES = _Paths.CATEGORIES;
   static const FILTERS = _Paths.FILTERS;
   static const MEALS = _Paths.MEALS;
+  static const MEAL_DETAIL = _Paths.MEAL_DETAIL;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const CATEGORIES = '/categories';
   static const FILTERS = '/filters';
   static const MEALS = '/meals';
+  static const MEAL_DETAIL = '/meal-detail';
 }

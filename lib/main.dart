@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meal_getcli/app/modules/categories/controllers/categories_controller.dart';
-import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
+
 import 'app/routes/app_pages.dart';
 
 final theme = ThemeData(
@@ -14,8 +13,7 @@ final theme = ThemeData(
   textTheme: GoogleFonts.latoTextTheme(),
 );
 void main() {
-  Get.put(MealsController());
-  Get.put(CategoriesController());
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     GetMaterialApp(
       theme: theme,
