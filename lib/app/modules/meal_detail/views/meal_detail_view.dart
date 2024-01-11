@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:getx_meal/controllers/meals_controller.dart';
-import 'package:getx_meal/models/meal.dart';
+import 'package:meal_getcli/app/data/models/meal.dart';
+import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
 
-class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({super.key, required this.meal});
-
+class MealDetailtView extends GetView<MealsController> {
+  const MealDetailtView({required this.meal, Key? key}) : super(key: key);
   final Meal meal;
-
   @override
   Widget build(BuildContext context) {
-    MealsController mealsController = Get.find();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
         actions: [
           IconButton(
               onPressed: () {
-                mealsController.selectFavoriteMeals(meal);
-                mealsController.selectFavoriteMeal(meal);
+                controller.selectFavoriteMeals(meal);
+                controller.selectFavoriteMeal(meal);
               },
-              icon: Obx(() => Icon(mealsController.selectedFavoriteMeal.value
+              icon: Obx(() => Icon(controller.selectedFavoriteMeal.value
                   ? Icons.star
                   : Icons.star_border_outlined))),
         ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_meal/models/category.dart';
+import 'package:meal_getcli/app/data/models/category.dart';
 
-class CategoryController extends GetxController {
+class CategoriesController extends GetxController {
   final _categoryList = <Category>[].obs;
   List<Category> get getCategoryList => _categoryList;
 

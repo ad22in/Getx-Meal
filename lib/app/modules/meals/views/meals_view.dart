@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:getx_meal/controllers/meals_controller.dart';
-import 'package:getx_meal/models/meal.dart';
-import 'package:getx_meal/widgets/meal_item.dart';
+import 'package:meal_getcli/app/data/models/meal.dart';
+import 'package:meal_getcli/app/modules/meals/views/meal_item_view.dart';
 
-class MealsScreen extends StatelessWidget {
-  const MealsScreen({super.key, this.title1, this.meals});
+import '../controllers/meals_controller.dart';
 
+class MealsView extends GetView<MealsController> {
+  const MealsView({this.meals, this.title1, Key? key}) : super(key: key);
   final String? title1;
   final List<Meal>? meals;
-
   @override
   Widget build(BuildContext context) {
-    MealsController mealsController = Get.find();
-
-    String? title = mealsController.selectedCategoryTitle.value;
-
+    String? title = controller.selectedCategoryTitle.value;
     Widget content = ListView.builder(
-      itemCount: mealsController.availableMealsList.length,
-      itemBuilder: (ctx, index) => MealItem(
-        meal: mealsController.availableMealsList[index],
+      itemCount: controller.availableMealsList.length,
+      itemBuilder: (ctx, index) => MealItemView(
+        meal: controller.availableMealsList[index],
       ),
     );
-
     if (meals != null && meals!.isNotEmpty) {
       title = title1;
-      content = Obx(() => ListView.builder(
-            itemCount: meals!.length,
-            itemBuilder: (ctx, index) => MealItem(meal: meals![index]),
-          ));
+      content = Obx(
+        () => ListView.builder(
+          itemCount: meals!.length,
+          itemBuilder: (ctx, index) => MealItemView(meal: meals![index]),
+        ),
+      );
     }
 
     if (meals != null && meals!.isEmpty) {
@@ -56,7 +54,7 @@ class MealsScreen extends StatelessWidget {
       );
     }
 
-    if (mealsController.availableMealsList.isEmpty && meals == null) {
+    if (controller.availableMealsList.isEmpty && meals == null) {
       content = Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_meal/controllers/meals_controller.dart';
-import 'package:getx_meal/screens/tabs.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meal_getcli/app/modules/categories/controllers/categories_controller.dart';
+import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
+import 'app/routes/app_pages.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -12,21 +13,15 @@ final theme = ThemeData(
   ),
   textTheme: GoogleFonts.latoTextTheme(),
 );
-
 void main() {
   Get.put(MealsController());
-  runApp(const App());
-}
-
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
+  Get.put(CategoriesController());
+  runApp(
+    GetMaterialApp(
       theme: theme,
-      home: const TabsScreen(),
-    );
-  }
+      title: "Application",
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+    ),
+  );
 }

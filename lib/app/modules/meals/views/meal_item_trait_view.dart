@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MealItemTrait extends StatelessWidget {
-  const MealItemTrait({super.key, required this.icon, required this.label});
+import 'package:get/get.dart';
 
+class MealItemTraitView extends GetView {
+  const MealItemTraitView({Key? key, required this.icon, required this.label})
+      : super(key: key);
   final IconData icon;
   final String label;
-
   @override
   Widget build(BuildContext context) {
     return Row(

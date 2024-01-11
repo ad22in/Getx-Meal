@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:getx_meal/controllers/meals_controller.dart';
-import 'package:getx_meal/models/category.dart';
-import 'package:getx_meal/screens/meals.dart';
 
-class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({super.key, required this.category});
+import 'package:get/get.dart';
+import 'package:meal_getcli/app/data/models/category.dart';
+import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
+import 'package:meal_getcli/app/routes/app_pages.dart';
+
+class CategoryGridItemView extends GetView {
+  const CategoryGridItemView({required this.category, Key? key})
+      : super(key: key);
 
   final Category category;
-
   @override
   Widget build(BuildContext context) {
+    MealsController mealsController = Get.find();
     return InkWell(
       onTap: () {
-        MealsController mealsController = Get.find();
-
-        
         mealsController.selectTitle(category.title);
         mealsController.selectId(category.id);
         mealsController.selectCategory();
         mealsController.selectAvailableMealsList();
-        
-        Get.to(() => const MealsScreen());
+
+        Get.toNamed(Routes.MEALS);
       },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:getx_meal/controllers/meals_controller.dart';
-import 'package:getx_meal/models/meal.dart';
-import 'package:getx_meal/screens/meal_detail_screen.dart';
-import 'package:getx_meal/widgets/meal_item_trait.dart';
+import 'package:meal_getcli/app/data/models/meal.dart';
+import 'package:meal_getcli/app/modules/meal_detail/views/meal_detail_view.dart';
+import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
+import 'package:meal_getcli/app/modules/meals/views/meal_item_trait_view.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class MealItem extends StatelessWidget {
-  const MealItem({super.key, required this.meal});
+class MealItemView extends GetView<MealsController> {
+  const MealItemView({required this.meal, Key? key}) : super(key: key);
 
   final Meal meal;
   String get complexityText {
@@ -22,7 +23,6 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MealsController mealsController = Get.find();
     return Card(
       margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -30,10 +30,10 @@ class MealItem extends StatelessWidget {
       elevation: 2,
       child: InkWell(
         onTap: () {
-          if (!mealsController.getFavoriteMealList.contains(meal)) {
-            mealsController.selectedFavoriteMeal.value = false;
+          if (!controller.getFavoriteMealList.contains(meal)) {
+            controller.selectedFavoriteMeal.value = false;
           }
-          Get.to(() => MealDetailScreen(meal: meal));
+          Get.to(() => MealDetailtView(meal: meal));
         },
         child: Stack(
           children: [
@@ -70,17 +70,17 @@ class MealItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MealItemTrait(
+                        MealItemTraitView(
                           icon: Icons.schedule,
                           label: '${meal.duration} min',
                         ),
                         const SizedBox(width: 12),
-                        MealItemTrait(
+                        MealItemTraitView(
                           icon: Icons.work,
                           label: complexityText,
                         ),
                         const SizedBox(width: 12),
-                        MealItemTrait(
+                        MealItemTraitView(
                           icon: Icons.attach_money,
                           label: affordabilityText,
                         ),

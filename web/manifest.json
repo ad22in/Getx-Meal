@@ -1,6 +1,6 @@
 {
-    "name": "getx_meal",
-    "short_name": "getx_meal",
+    "name": "meal_getcli",
+    "short_name": "meal_getcli",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

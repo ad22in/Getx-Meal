@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:getx_meal/controllers/meals_controller.dart';
-/* import 'package:getx_meal/screens/meals.dart';
-import 'package:getx_meal/screens/tabs.dart';
-import 'package:getx_meal/widgets/main_drawer.dart'; */
+import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
 
-class FiltersScreen extends StatelessWidget {
-  const FiltersScreen({super.key});
+import '../controllers/filters_controller.dart';
 
+class FiltersView extends GetView<FiltersController> {
+  const FiltersView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     MealsController mealsController = Get.find();

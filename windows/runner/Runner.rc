@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "getx_meal" "\0"
+            VALUE "CompanyName", "com.adin" "\0"
+            VALUE "FileDescription", "meal_getcli" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "getx_meal" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "getx_meal.exe" "\0"
-            VALUE "ProductName", "getx_meal" "\0"
+            VALUE "InternalName", "meal_getcli" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.adin. All rights reserved." "\0"
+            VALUE "OriginalFilename", "meal_getcli.exe" "\0"
+            VALUE "ProductName", "meal_getcli" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:getx_meal/models/meal.dart';
+import 'package:meal_getcli/app/data/models/meal.dart';
 
 class MealsController extends GetxController {
-  //the entire standard list
+//the entire standard list
   final _mealsList = <Meal>[].obs;
   List<Meal> get getMealList => _mealsList;
 
@@ -124,7 +124,7 @@ class MealsController extends GetxController {
         title: 'Spaghetti with Tomato Sauce',
         affordability: Affordability.affordable,
         complexity: Complexity.simple,
-        imagePath: 'assets/images/spaghetti.jpg',
+        imagePath: 'lib/app/data/images/spaghetti.jpg',
         duration: 20,
         ingredients: [
           '4 Tomatoes',
@@ -156,7 +156,7 @@ class MealsController extends GetxController {
         title: 'Toast Hawaii',
         affordability: Affordability.affordable,
         complexity: Complexity.simple,
-        imagePath: 'assets/images/toast.jpg',
+        imagePath: 'lib/app/data/images/toast.jpg',
         duration: 10,
         ingredients: [
           '1 Slice White Bread',
@@ -184,7 +184,7 @@ class MealsController extends GetxController {
         title: 'Classic Hamburger',
         affordability: Affordability.pricey,
         complexity: Complexity.simple,
-        imagePath: 'assets/images/burger.jpg',
+        imagePath: 'lib/app/data/images/burger.jpg',
         duration: 45,
         ingredients: [
           '300g Cattle Hack',
@@ -214,7 +214,7 @@ class MealsController extends GetxController {
         title: 'Wiener Schnitzel',
         affordability: Affordability.luxurious,
         complexity: Complexity.challenging,
-        imagePath: 'assets/images/schnitzel.jpg',
+        imagePath: 'lib/app/data/images/schnitzel.jpg',
         duration: 60,
         ingredients: [
           '8 Veal Cutlets',
@@ -250,7 +250,7 @@ class MealsController extends GetxController {
         title: 'Salad with Smoked Salmon',
         affordability: Affordability.luxurious,
         complexity: Complexity.simple,
-        imagePath: 'assets/images/smoked-salmon-salad.jpg',
+        imagePath: 'lib/app/data/images/smoked-salmon-salad.jpg',
         duration: 15,
         ingredients: [
           'Arugula',
@@ -284,7 +284,7 @@ class MealsController extends GetxController {
         title: 'Delicious Orange Mousse',
         affordability: Affordability.affordable,
         complexity: Complexity.hard,
-        imagePath: 'assets/images/pastry.jpg',
+        imagePath: 'lib/app/data/images/pastry.jpg',
         duration: 240,
         ingredients: [
           '4 Sheets of Gelatine',
@@ -318,7 +318,7 @@ class MealsController extends GetxController {
         title: 'Pancakes',
         affordability: Affordability.affordable,
         complexity: Complexity.simple,
-        imagePath: 'assets/images/pancake.jpg',
+        imagePath: 'lib/app/data/images/pancake.jpg',
         duration: 20,
         ingredients: [
           '1 1/2 Cups all-purpose Flour',
@@ -348,7 +348,7 @@ class MealsController extends GetxController {
         title: 'Creamy Indian Chicken Curry',
         affordability: Affordability.pricey,
         complexity: Complexity.challenging,
-        imagePath: 'assets/images/indian-food.jpg',
+        imagePath: 'lib/app/data/images/indian-food.jpg',
         duration: 35,
         ingredients: [
           '4 Chicken Breasts',
@@ -380,7 +380,7 @@ class MealsController extends GetxController {
         title: 'Chocolate Souffle',
         affordability: Affordability.affordable,
         complexity: Complexity.hard,
-        imagePath: 'assets/images/souffle.jpg',
+        imagePath: 'lib/app/data/images/souffle.jpg',
         duration: 45,
         ingredients: [
           '1 Teaspoon melted Butter',
@@ -430,7 +430,7 @@ class MealsController extends GetxController {
         title: 'Asparagus Salad with Cherry Tomatoes',
         affordability: Affordability.luxurious,
         complexity: Complexity.simple,
-        imagePath: 'assets/images/asparagus.jpg',
+        imagePath: 'lib/app/data/images/asparagus.jpg',
         duration: 30,
         ingredients: [
           'White and Green Asparagus',

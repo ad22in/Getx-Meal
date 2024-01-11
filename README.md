@@ -1,4 +1,4 @@
-# getx_meal
+# meal_getcli
 
 A new Flutter project.
 
