@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 
 import '../modules/categories/bindings/categories_binding.dart';
 import '../modules/categories/views/categories_view.dart';
-import '../modules/filters/bindings/filters_binding.dart';
-import '../modules/filters/views/filters_view.dart';
 import '../modules/meal_detail/bindings/meal_detail_binding.dart';
 import '../modules/meal_detail/views/meal_detail_view.dart';
 import '../modules/meals/bindings/meals_binding.dart';
@@ -32,13 +30,8 @@ class AppPages {
       binding: CategoriesBinding(),
     ),
     GetPage(
-      name: _Paths.FILTERS,
-      page: () => const FiltersView(),
-      binding: FiltersBinding(),
-    ),
-    GetPage(
       name: _Paths.MEALS,
-      page: () => const MealsView(),
+      page: () => MealsView(),
       binding: MealsBinding(),
     ),
     GetPage(

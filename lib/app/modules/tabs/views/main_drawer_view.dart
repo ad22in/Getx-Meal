@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:meal_getcli/app/modules/tabs/views/filters_view.dart';
 
 class MainDrawerView extends GetView {
-  const MainDrawerView({Key? key, required this.onSelectScreen})
-      : super(key: key);
-  final void Function(String identifier) onSelectScreen;
+  const MainDrawerView({super.key});
+
+  void onSelectScreen(bool shouldGoToFilters) {
+    Get.back();
+    if (shouldGoToFilters) {
+      Get.to(const FiltersView());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -43,44 +50,42 @@ class MainDrawerView extends GetView {
               ],
             ),
           ),
-          //Meals
-          ListTile(
-            leading: Icon(
-              Icons.restaurant,
-              size: 26,
-              color: Theme.of(context).colorScheme.onBackground,
-            ),
-            title: Text(
-              'Meals',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 24,
-                  ),
-            ),
-            onTap: () {
-              onSelectScreen('meals');
-            },
+          _buildButtonTile(
+            context,
+            Icons.restaurant,
+            'Meals',
+            () => onSelectScreen(false),
           ),
-          //Filters
-          ListTile(
-            leading: Icon(
-              Icons.settings,
-              size: 26,
-              color: Theme.of(context).colorScheme.onBackground,
-            ),
-            title: Text(
-              'Filters',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontSize: 24,
-                  ),
-            ),
-            onTap: () {
-              onSelectScreen('filters');
-            },
+          _buildButtonTile(
+            context,
+            Icons.settings,
+            'Filters',
+            () => onSelectScreen(true),
           ),
         ],
       ),
     );
   }
+
+  Widget _buildButtonTile(
+    BuildContext context,
+    IconData icon,
+    String text,
+    void Function() onTap,
+  ) =>
+      ListTile(
+        leading: Icon(
+          icon,
+          size: 26,
+          color: Theme.of(context).colorScheme.onBackground,
+        ),
+        title: Text(
+          text,
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 24,
+              ),
+        ),
+        onTap: onTap,
+      );
 }

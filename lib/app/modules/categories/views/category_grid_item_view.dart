@@ -2,25 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:meal_getcli/app/data/models/category.dart';
-import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
+import 'package:meal_getcli/app/data/repositories/filter_repository.dart';
 import 'package:meal_getcli/app/routes/app_pages.dart';
 
-class CategoryGridItemView extends GetView {
-  const CategoryGridItemView({required this.category, Key? key})
-      : super(key: key);
+class CategoryGridItemView extends GetView<FilterRepository> {
+  const CategoryGridItemView({required this.category, super.key});
 
   final Category category;
+
   @override
   Widget build(BuildContext context) {
-    MealsController mealsController = Get.find();
     return InkWell(
       onTap: () {
-        mealsController.selectTitle(category.title);
-        mealsController.selectId(category.id);
-        mealsController.selectCategory();
-        mealsController.selectAvailableMealsList();
-
-        Get.toNamed(Routes.MEALS);
+        controller.selectedCategory.value = category;
+        Get.toNamed(Routes.MEALS, arguments: category);
       },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),

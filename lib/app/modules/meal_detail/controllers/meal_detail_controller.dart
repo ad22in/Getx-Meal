@@ -1,23 +1,3 @@
 import 'package:get/get.dart';
 
-class MealDetailController extends GetxController {
-  //TODO: Implement MealDetailController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
-}
+class MealDetailController extends GetxController {}

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:meal_getcli/app/data/models/meal.dart';
-import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
+import 'package:meal_getcli/app/data/repositories/favourte_repository.dart';
 
-class MealDetailView extends GetView<MealsController> {
-  MealDetailView({Key? key}) : super(key: key);
+class MealDetailView extends GetView<FavouriteRepository> {
+  MealDetailView({super.key});
+
   final Meal meal = Get.arguments;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +17,10 @@ class MealDetailView extends GetView<MealsController> {
         actions: [
           IconButton(
               onPressed: () {
-                controller.selectFavoriteMeals(meal);
-                controller.selectFavoriteMeal(meal);
+                _showSnackbars(meal);
+                controller.toggleFavourite(meal);
               },
-              icon: Obx(() => Icon(controller.selectedFavoriteMeal.value
+              icon: Obx(() => Icon(controller.isFavourite(meal)
                   ? Icons.star
                   : Icons.star_border_outlined))),
         ],
@@ -69,5 +71,23 @@ class MealDetailView extends GetView<MealsController> {
         ),
       ),
     );
+  }
+
+  void _showSnackbars(Meal meal) {
+    if (controller.isFavourite(meal)) {
+      Get.closeCurrentSnackbar();
+      Get.snackbar(
+        'Favorite Removed',
+        'You removed ${meal.title} from your favorite list.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    } else {
+      Get.closeCurrentSnackbar();
+      Get.snackbar(
+        'Favorite Added',
+        'You added ${meal.title} to your favorite list.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
 }

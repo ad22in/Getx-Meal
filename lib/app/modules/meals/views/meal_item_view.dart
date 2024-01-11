@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meal_getcli/app/data/models/meal.dart';
-import 'package:meal_getcli/app/modules/meals/controllers/meals_controller.dart';
 import 'package:meal_getcli/app/modules/meals/views/meal_item_trait_view.dart';
 import 'package:meal_getcli/app/routes/app_pages.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class MealItemView extends GetView<MealsController> {
-  const MealItemView({required this.meal, Key? key}) : super(key: key);
+class MealItemView extends StatelessWidget {
+  const MealItemView({required this.meal, super.key});
 
   final Meal meal;
   String get complexityText {
@@ -28,12 +27,7 @@ class MealItemView extends GetView<MealsController> {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {
-          if (!controller.getFavoriteMealList.contains(meal)) {
-            controller.selectedFavoriteMeal.value = false;
-          }
-          Get.toNamed(Routes.MEAL_DETAIL, arguments: meal);
-        },
+        onTap: () => Get.toNamed(Routes.MEAL_DETAIL, arguments: meal),
         child: Stack(
           children: [
             FadeInImage(

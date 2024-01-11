@@ -5,7 +5,8 @@ import 'package:meal_getcli/app/modules/categories/views/category_grid_item_view
 import '../controllers/categories_controller.dart';
 
 class CategoriesView extends GetView<CategoriesController> {
-  const CategoriesView({Key? key}) : super(key: key);
+  const CategoriesView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -16,10 +17,10 @@ class CategoriesView extends GetView<CategoriesController> {
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
-      itemCount: controller.getCategoryList.length,
+      itemCount: controller.categoryList.length,
       itemBuilder: (context, index) {
         return CategoryGridItemView(
-          category: controller.getCategoryList[index],
+          category: controller.categoryList[index],
         );
       },
     );
